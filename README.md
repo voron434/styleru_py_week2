@@ -28,7 +28,7 @@ Program copy only usefull information about downlowaded vacancies
 ***
 # 3. vacancies_explore #
 #### Third task,
-For this program need path to json file from 2 task.
+For this program need path to json file from 2 task.  
 Program count needless of every languge for downloaded vacancions and averege earnings for each of them.  
 Also it draws bar chart with this statistics.
 #### example of code process:  
