@@ -78,8 +78,7 @@ def find_prog_lang(data, chart):
                 """
             if (language in vacancy['name'].lower()) or (language in vacancy['requirements'].lower()):
                 chart[language][0] += 1
-                if vacancy['payment_from'] != 0:
-                    chart[language][1] += vacancy['payment_from']
+                chart[language][1] += vacancy['payment_from']
     for language in chart:
         if chart[language][1] != 0:
             chart[language][1] = chart[language][1]/chart[language][0]
