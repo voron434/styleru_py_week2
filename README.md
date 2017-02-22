@@ -34,6 +34,6 @@ Also it draws bar chart with this statistics.
 #### example of code process:  
   *python vacancies_explore.py*  
   ***Enter path to DataBase:***  
-  *simple_vacancies.json*
-  **bar chart**
-  ***Process finished with exit code 0***  
+  *simple_vacancies.json*  
+  **bar chart**  
+  ***Process finished with exit code 0***    
