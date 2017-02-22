@@ -12,7 +12,7 @@ You need to enter your api_key, wich you could get [here](https://api.superjob.r
   ***Enter your api key :***  
   *64be4144d51bbaee6234f2w82bb*    
   ***Process finished with exit code 0***  
-    > Remember, that you must delete this in couple of days, because TMDB don't allow to save their data      
+  > Remember, that you must delete this in couple of days, because TMDB don't allow to save their data      
   
 ***
 # 2. vacancies_treatment #
@@ -24,7 +24,6 @@ Program copy only usefull information about downlowaded vacancies
   ***Enter path to DataBase::***  
   *vacancies.json*   
   ***Process finished with exit code 0***  
-  > Remember, that you must delete this in couple of days, because TMDB don't allow to save their data      
   
 ***
 # 3. vacancies_explore #
