@@ -1,6 +1,6 @@
 # styleru_py_week2
 This is result of my work with SuperJob api:  
-All of these scripts requires Python 3.x.  
+All of these scripts requires Python 3.x. and modules from reqirements.txt   
 Also there is full Eng interface.  
 ***
 # 1. hello_api_superjob #
