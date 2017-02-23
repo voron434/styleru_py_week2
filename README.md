@@ -17,8 +17,8 @@ You need to enter your api_key, wich you could get [here](https://api.superjob.r
 ***
 # 2. vacancies_treatment #
 #### Second task,  
-For this program need path to json file from 1 task.  
-Program copy only usefull information about downlowaded vacancies  
+This program need path to json file from 1 task.  
+Program copy only usefull information about downlowaded vacancies and put it into a new json file.
 #### example of code process:  
   *python vacancies_treatment.py*  
   ***Enter path to DataBase::***  
@@ -28,7 +28,7 @@ Program copy only usefull information about downlowaded vacancies
 ***
 # 3. vacancies_explore #
 #### Third task,
-For this program need path to json file from 2 task.  
+This program need path to json file from 2 task.  
 Program count popularity of every languge for downloaded vacancions and averege earnings for each of them.  
 Also it draws bar chart with this statistics.
 #### example of code process:  
