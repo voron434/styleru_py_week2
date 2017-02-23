@@ -1,6 +1,14 @@
-from helpers import load_data
-from helpers import get_vacancy_params
 import json
+from helpers import load_data
+
+def get_vacancy_params(vacancy):
+    parameters = {
+            'name': vacancy['profession'],
+            'requirements': vacancy['candidat'],
+            'payment_from': vacancy['payment_from'],
+            'currency': vacancy['currency']
+        }
+    return parameters
 
 if __name__ == '__main__':
     data = load_data()
@@ -8,6 +16,7 @@ if __name__ == '__main__':
     for vacancy in data['objects']:
         parameters = get_vacancy_params(vacancy)
         simple_vacancies.append(parameters)
+        print(parameters)
     path = 'simple_vacancies.json'
     with open(path, mode='w', encoding='utf-8') as my_file:
         json.dump(simple_vacancies, my_file)
