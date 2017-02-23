@@ -16,7 +16,6 @@ def make_list_of_languages():
     languages = {'1c': [0, 0],
                  'vba': [0, 0],
                  'python': [0, 0],
-                 'c ': [0, 0],
                  'c++': [0, 0],
                  'c#': [0, 0],
                  'vb': [0, 0],
@@ -29,6 +28,8 @@ def make_list_of_languages():
                  'ruby': [0, 0],
                  'swift': [0, 0],
                  'sql': [0, 0],
+                 'oracle': [0, 0],
+                 'perl': [0, 0],
                  }
     return languages
 
