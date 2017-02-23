@@ -68,14 +68,8 @@ def make_list_of_languages():
 def find_prog_lang(data, chart):
     for vacancy in data:
         for language in chart:
-            if vacancy['requirements'] == None:
-                continue
-            if vacancy['name'] == None:
-                continue
-                """
-                really strange piece of code.
-                i don't know why some of names or requirements are empty, by the way it is fixed.
-                """
+            if (vacancy['requirements'] == None) or (vacancy['name'] == None):
+                continue # just some of names and requirements are for some reason empty?..
             if (language in vacancy['name'].lower()) or (language in vacancy['requirements'].lower()):
                 chart[language][0] += 1
                 chart[language][1] += vacancy['payment_from']
@@ -89,5 +83,5 @@ def draw_graph(chart):
     plt.ylabel('Average value of payment')
     plt.title('Statistics')
     languages, payments = [language for language in chart], [chart[payment][1] for payment in chart]
-    plt.bar(range(len(chart)), payments, tick_label=languages, label="kek")
+    plt.bar(range(len(chart)), payments, tick_label=languages)
     plt.show()
