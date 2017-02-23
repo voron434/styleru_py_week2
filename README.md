@@ -12,7 +12,7 @@ You need to enter your api_key, wich you could get [here](https://api.superjob.r
   ***Enter your api key :***  
   *64be4144d51bbaee6234f2w82bb*    
   ***Process finished with exit code 0***  
-  > Remember, that you must delete this in couple of days, because superjob don't allow to save their data      
+  > Remember, that you must delete this data in couple of days, because superjob don't allow to save their data      
   
 ***
 # 2. vacancies_treatment #
