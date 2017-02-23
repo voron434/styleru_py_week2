@@ -16,7 +16,6 @@ if __name__ == '__main__':
     for vacancy in data['objects']:
         parameters = get_vacancy_params(vacancy)
         simple_vacancies.append(parameters)
-        print(parameters)
     path = 'simple_vacancies.json'
     with open(path, mode='w', encoding='utf-8') as my_file:
         json.dump(simple_vacancies, my_file)
