@@ -1,4 +1,4 @@
-rom getpass import getpass
+from getpass import getpass
 import json
 import requests
 
