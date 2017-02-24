@@ -1,4 +1,5 @@
 import json
+import matplotlib.pyplot as plt
 
 def load_data():
     print('Enter path to DataBase:')
