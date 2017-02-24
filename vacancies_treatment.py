@@ -1,5 +1,4 @@
 import json
-from helpers import load_data
 
 def get_vacancy_params(vacancy):
     parameters = {
@@ -9,6 +8,17 @@ def get_vacancy_params(vacancy):
             'currency': vacancy['currency']
         }
     return parameters
+
+def load_data():
+    print('Enter path to DataBase:')
+    path = input()
+    try:
+        with open(path, mode='r', encoding='utf-8') as my_file:
+            data = json.load(my_file)
+            return data
+    except FileNotFoundError:
+        print('File not found, sorry...')
+        raise SystemExit
 
 if __name__ == '__main__':
     data = load_data()
