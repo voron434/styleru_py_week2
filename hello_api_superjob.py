@@ -17,8 +17,9 @@ def get_api_key():
 def send_reqest(api_key, count=100):
     header = {'X-Api-App-Id': api_key}
     parametrs = {'keyword': 'программист',
-                 'town': '4', 'count': count,
-                 'catalogue_id': 48,
+                 'town': '4', #id Москвы 
+                 'count': count,
+                 'catalogue_id': 48, #каталог "Разработка, программирование"
                  'no_agreement': 1}
     reqest = requests.get('https://api.superjob.ru/2.0/vacancies', headers=header, params=parametrs)
     return reqest.json()
