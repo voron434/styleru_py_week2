@@ -1,56 +1,42 @@
 import json
+import os
 import matplotlib.pyplot as plt
 
-def load_data():
-    print('Enter path to DataBase:')
-    path = input()
-    try:
-        with open(path, mode='r', encoding='utf-8') as my_file:
-            data = json.load(my_file)
-            return data
-    except FileNotFoundError:
-        print('File not found, sorry...')
-        raise SystemExit
+def make_dict_of_languages():
+    dict_of_languages ={}
+    languages = ['1c', 'python', 'c++', 'c#', 'vb', 'java', 'delphi', 'css', 'html', 'php', 'js', 'sql']
+    for language in languages:
+        dict_of_languages[language] = {'popularity': 0, 'payment_from': 0}
+    return dict_of_languages
 
-def make_list_of_languages():
-    languages = {'1c': [0, 0],
-                 'python': [0, 0],
-                 'c++': [0, 0],
-                 'c#': [0, 0],
-                 'vb': [0, 0],
-                 'java': [0, 0],
-                 'delphi': [0, 0],
-                 'css': [0, 0],
-                 'html': [0, 0],
-                 'php': [0, 0],
-                 'js': [0, 0],
-                 'sql': [0, 0],
-                 }
-    return languages
-
-def find_prog_lang(data, chart):
+def collect_statistics_into_chart(data, chart):
     for vacancy in data:
         for language in chart:
-            if (vacancy['requirements'] == None) or (vacancy['name'] == None):
+            if not vacancy['requirements'] or not vacancy['name']:
                 continue #for some reason some of them are empty...
             if (language in vacancy['name'].lower()) or (language in vacancy['requirements'].lower()):
-                chart[language][0] += 1 #this slot for popularity
-                chart[language][1] += vacancy['payment_from']
+                chart[language]['popularity'] += 1 #this slot for popularity
+                chart[language]['payment_from'] += vacancy['payment_from']
     for language in chart:
-        if chart[language][1] != 0:
-            chart[language][1] = chart[language][1]/chart[language][0]
+        if chart[language]['payment_from'] != 0:
+            chart[language]['payment_from'] = chart[language]['payment_from']/chart[language]['popularity']
     return chart
 
 def draw_graph(chart):
     plt.xlabel('Language')
     plt.ylabel('Average value of payment_from')
     plt.title('Statistics')
-    languages, payments = [language for language in chart], [chart[payment][1] for payment in chart]
+    languages, payments = [language for language in chart], [chart[payment]['payment_from'] for payment in chart]
     plt.bar(range(len(chart)), payments, tick_label=languages)
     plt.show()
 
 if __name__ == '__main__':
-    data = load_data()
-    chart = make_list_of_languages()
-    chart = find_prog_lang(data, chart)
+    path = input('Enter path to DataBase:')
+    if not os.path.exists(path):
+        print('File not found, sorry...')
+        raise SystemExit
+    with open(path, mode='r', encoding='utf-8') as my_file:
+        data = json.load(my_file)
+    chart = make_dict_of_languages()
+    chart = collect_statistics_into_chart(data, chart)
     draw_graph(chart)
