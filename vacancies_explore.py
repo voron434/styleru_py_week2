@@ -1,6 +1,5 @@
-import json
-import os
 import matplotlib.pyplot as plt
+from filework_helpers import load_data
 
 def make_dict_of_languages():
     dict_of_languages ={}
@@ -15,7 +14,7 @@ def collect_statistics_into_chart(data, chart):
             if not vacancy['requirements'] or not vacancy['name']:
                 continue #for some reason some of them are empty...
             if (language in vacancy['name'].lower()) or (language in vacancy['requirements'].lower()):
-                chart[language]['popularity'] += 1
+                chart[language]['popularity'] += 1 #this slot for popularity
                 chart[language]['payment_from'] += vacancy['payment_from']
     for language in chart:
         if chart[language]['payment_from'] != 0:
@@ -33,12 +32,10 @@ def draw_graph(chart):
 
 if __name__ == '__main__':
     path = input('Enter path to DataBase:')
-    if not os.path.exists(path):
+    vacancies_data = load_data(path)
+    if not vacancies_data:
         print('File not found, sorry...')
         raise SystemExit
-    with open(path, mode='r', encoding='utf-8') as my_file:
-        data = json.load(my_file)
     chart = make_dict_of_languages()
-    chart = collect_statistics_into_chart(data, chart)
+    chart = collect_statistics_into_chart(vacancies_data, chart)
     draw_graph(chart)
-    print('stats saved into statistics.png')
