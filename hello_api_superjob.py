@@ -32,3 +32,4 @@ if __name__ == '__main__':
     path = 'vacancies.json'
     with open(path, mode='w', encoding='utf-8') as my_file:
         json.dump(all_vacancies, my_file)
+    print('vacancies saved into %s' % path)
