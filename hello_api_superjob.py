@@ -1,6 +1,6 @@
 from getpass import getpass
-import json
 import requests
+from filework_helpers import dump_data
 
 def get_api_key():
     api_key = getpass('Enter your api key:')
@@ -30,6 +30,4 @@ if __name__ == '__main__':
         raise SystemExit
     all_vacancies = send_reqest(api_key)
     path = 'vacancies.json'
-    with open(path, mode='w', encoding='utf-8') as my_file:
-        json.dump(all_vacancies, my_file)
-    print('vacancies saved into %s' % path)
+    dump_data(all_vacancies, path)
