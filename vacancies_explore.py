@@ -41,3 +41,4 @@ if __name__ == '__main__':
     chart = make_dict_of_languages()
     chart = collect_statistics_into_chart(data, chart)
     draw_graph(chart)
+    print('stats saved into statistics.png')
