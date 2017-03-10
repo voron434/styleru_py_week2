@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def make_dict_of_languages():
     dict_of_languages ={}
-    languages = ['1c', 'python', 'c++', 'c#', 'vb', 'java', 'delphi', 'css', 'html', 'php', 'js', 'sql']
+    languages = ['python', 'c++', 'c#', 'vb', 'java', 'delphi', 'css', 'html', 'php', 'js', 'sql']
     for language in languages:
         dict_of_languages[language] = {'popularity': 0, 'payment_from': 0}
     return dict_of_languages
@@ -19,15 +19,16 @@ def collect_statistics_into_chart(data, chart):
                 chart[language]['payment_from'] += vacancy['payment_from']
     for language in chart:
         if chart[language]['payment_from'] != 0:
-            chart[language]['payment_from'] = chart[language]['payment_from']/chart[language]['popularity']
+            chart[language]['average_payment_from'] = chart[language]['payment_from']/chart[language]['popularity']
     return chart
 
 def draw_graph(chart):
     plt.xlabel('Language')
     plt.ylabel('Average value of payment_from')
     plt.title('Statistics')
-    languages, payments = [language for language in chart], [chart[payment]['payment_from'] for payment in chart]
+    languages, payments = [language for language in chart], [chart[language]['average_payment_from'] for language in chart]
     plt.bar(range(len(chart)), payments, tick_label=languages)
+    plt.savefig('statistics.png')
     plt.show()
 
 if __name__ == '__main__':
