@@ -15,7 +15,7 @@ def collect_statistics_into_chart(data, chart):
             if not vacancy['requirements'] or not vacancy['name']:
                 continue #for some reason some of them are empty...
             if (language in vacancy['name'].lower()) or (language in vacancy['requirements'].lower()):
-                chart[language]['popularity'] += 1 #this slot for popularity
+                chart[language]['popularity'] += 1
                 chart[language]['payment_from'] += vacancy['payment_from']
     for language in chart:
         if chart[language]['payment_from'] != 0:
