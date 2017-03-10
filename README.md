@@ -11,7 +11,7 @@ You need to enter your api_key, wich you could get [here](https://api.superjob.r
     $python hello_api_superjob.py  
     Enter your api key :  
     3t543t34be4144d51bbaee6234f2w82bb    
-    Process finished with exit code 0  
+    vacancies saved into vacancies.json 
   > Remember, that you must delete this data in couple of days, because superjob don't allow to save their data      
   
 ***
@@ -23,17 +23,17 @@ Program copy only usefull information about downlowaded vacancies and put it int
     $python vacancies_treatment.py  
     Enter path to DataBase:  
     vacancies.json
-    Process finished with exit code 0  
+    vacancies saved into simple_vacancies.json
   
 ***
 # 3. vacancies_explore #
 #### Third task,
 This program need path to json file from 2 task.  
 Program count popularity of every languge for downloaded vacancions and averege earnings for each of them.  
-Also it draws bar chart with this statistics.
+Also it draws bar chart with this statistics and saves it in .png format.
 #### example usage:  
     $python vacancies_explore.py  
     Enter path to DataBase:  
     simple_vacancies.json  
     here would be a bar chart  
-    Process finished with exit code 0    
+    stats saved into statistics.png   
