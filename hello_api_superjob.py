@@ -31,3 +31,4 @@ if __name__ == '__main__':
     all_vacancies = send_reqest(api_key)
     path = 'vacancies.json'
     dump_data(all_vacancies, path)
+    print('vacancies saved into %s' % path)
