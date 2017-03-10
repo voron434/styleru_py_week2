@@ -1,5 +1,5 @@
-import json
-import os
+from filework_helpers import dump_data
+from filework_helpers import load_data
 
 def get_vacancy_params(vacancy):
     parameters = {
@@ -12,16 +12,13 @@ def get_vacancy_params(vacancy):
 
 if __name__ == '__main__':
     input_path = input('Enter path to DataBase:')
-    if not os.path.exists(input_path):
+    vacancies_data = load_data(input_path)
+    if not vacancies_data:
         print('File not found, sorry...')
         raise SystemExit
-    with open(input_path, mode='r', encoding='utf-8') as my_file:
-        data = json.load(my_file)
     simple_vacancies = []
-    for vacancy in data['objects']:
+    for vacancy in vacancies_data['objects']:
         parameters = get_vacancy_params(vacancy)
         simple_vacancies.append(parameters)
     output_path = 'simple_vacancies.json'
-    with open(output_path, mode='w', encoding='utf-8') as my_new_file:
-        json.dump(simple_vacancies, my_new_file)
-    print('vacancies saved into %s' % output_path)
+    dump_data(simple_vacancies, 'simple_vacancies.json')
