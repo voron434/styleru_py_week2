@@ -22,3 +22,4 @@ if __name__ == '__main__':
         simple_vacancies.append(parameters)
     output_path = 'simple_vacancies.json'
     dump_data(simple_vacancies, 'simple_vacancies.json')
+    print('vacancies saved into %s' % output_path)
